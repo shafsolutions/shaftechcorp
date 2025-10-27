@@ -1,0 +1,68 @@
+<section id="services" class="services-section h-fit px-6 md:px-12 py-16 bg-linear-to-b from-slate-900 to-slate-950 overflow-hidden">
+  <div class="max-w-6xl mx-auto flex flex-col gap-12">
+    <h3 class="text-lg md:text-3xl font-semibold text-gradient">
+      What We Provide
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+      <div class="flex flex-col gap-3">
+        <h2 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+          <span class="shiny-text">Customized</span> technology <span class="shiny-text">solutions</span> for every business need
+        </h2>
+        <p class="text-white leading-5">We develop functional, fast, and easy-to-use websites and web-based applications. Our team ensures that each product can be tailored to business needs and is ready for future development.</p>
+      </div>
+      <div class="w-full h-fit border border-white/50 rounded-2xl overflow-auto">
+        <div class="bg-transparent hover:bg-linear-to-r from-blue-300/70 to-blue-200/70 transition flex items-center gap-4 border-b border-white/50 text-md md:text-[26px] font-bold p-6 text-white">
+          <i class="ph ph-browsers"></i>
+          Web & App Development
+        </div>
+        <div class="bg-transparent hover:bg-linear-to-r from-blue-300/70 to-blue-200/70 transition flex items-center gap-4 border-b border-white/50 text-md md:text-[26px] font-bold p-6 text-white">
+          <i class="ph ph-cloud"></i>
+          Cloud-Based System
+        </div>
+        <div class="bg-transparent hover:bg-linear-to-r from-blue-300/70 to-blue-200/70 transition flex items-center gap-4 border-b border-white/50 text-md md:text-[26px] font-bold p-6 text-white">
+          <i class="ph ph-magic-wand"></i>
+          UI/UX ReDesign
+        </div>
+        <div class="bg-transparent hover:bg-linear-to-r from-blue-300/70 to-blue-200/70 transition flex items-center gap-4 text-md md:text-[26px] font-bold p-6 text-white">
+          <i class="ph ph-head-circuit"></i>
+          System Integration & Automation
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      gsap.from(".services-section h3", {
+        scrollTrigger: {
+          trigger: ".services-section",
+          start: "top 60%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".services-section .grid > div", {
+        scrollTrigger: {
+          trigger: ".services-section",
+          start: "top 50%",
+        },
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+    });
+  }
+
+</script>

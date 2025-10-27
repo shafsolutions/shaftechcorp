@@ -1,0 +1,32 @@
+<section id="logo-intro" class="fixed inset-0 flex items-center justify-center bg-slate-950 z-9999">
+  <div class="flex flex-col items-center">
+    <img src="/assets/logo/logo-only.png" alt="SHAF Logo" class="h-32 w-auto opacity-0 scale-75 transition duration-1000" />
+    <h1 class="text-5xl font-bold text-white opacity-0 translate-y-4 transition duration-1000">SHAF Tech.</h1>
+  </div>
+</section>
+
+<script type="module">
+  const logoIntro = document.getElementById("logo-intro");
+  const logo = logoIntro.querySelector("img");
+  const heading = logoIntro.querySelector("h1");
+
+  document.body.style.overflow = "hidden";
+
+  logo.style.opacity = 1;
+  logo.style.transform = "scale(1)";
+
+  setTimeout(() => {
+    heading.style.opacity = 1;
+    heading.style.transform = "translateY(0)";
+  }, 400);
+
+  setTimeout(() => {
+    logoIntro.style.transition = "opacity 0.8s ease";
+    logoIntro.style.opacity = 0;
+
+    setTimeout(() => {
+      document.body.style.overflow = "";
+      logoIntro.remove();
+    }, 800);
+  }, 1500);
+</script>

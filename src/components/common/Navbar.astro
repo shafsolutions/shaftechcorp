@@ -1,0 +1,58 @@
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md transition-colors duration-300">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
+
+    <a href="/" class="flex items-center gap-2">
+      <img src="/assets/logo/logo-shaf.png" alt="SHAF Logo" class="h-10 w-auto" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-10">
+      <ul class="flex items-center space-x-8 text-white text-sm font-medium">
+        <li><a href="#services" class="hover:text-sky-400 transition">Services</a></li>
+        <li><a href="#works" class="hover:text-sky-400 transition">Works</a></li>
+      </ul>
+
+      <a
+        href="mailto:shafsolutionscorp@email.com"
+        class="flex items-center gap-2 text-white text-sm font-medium border border-white/50 hover:border-sky-500 px-4 py-2 rounded-full hover:bg-sky-500 transition"
+      >
+        Contact Us <i class="ph ph-arrow-right" class="text-base" />
+      </a>
+    </div>
+
+    <button
+      id="menu-btn"
+      class="md:hidden text-white text-3xl focus:outline-none transition-transform active:scale-95"
+      aria-label="Toggle Menu"
+    >
+      <i class="ph ph-list" />
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden absolute top-full left-0 w-full bg-black/20 backdrop-blur-md flex flex-col items-center py-8 space-y-6 text-white text-lg font-medium transition-all duration-300"
+  >
+    <a href="#services" class="hover:text-sky-400" onclick="closeMenu()">Services</a>
+    <a href="#works" class="hover:text-sky-400" onclick="closeMenu()">Works</a>
+    <a
+      href="#contact"
+      class="border border-white/50 hover:border-sky-500 px-6 py-2 rounded-full hover:bg-sky-500 transition"
+      onclick="closeMenu()"
+    >
+      Contact Us
+    </a>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  function closeMenu() {
+    mobileMenu.classList.add("hidden");
+  }
+</script>

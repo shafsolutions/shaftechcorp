@@ -1,0 +1,79 @@
+---
+---
+<style>
+  /* === Cursor Core === */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.25s ease, height 0.25s ease, filter 0.25s ease;
+  }
+
+  /* Glow Trail */
+  .cursor-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.4;
+    transform: scale(2);
+    filter: blur(5px);
+    z-index: -1;
+  }
+
+  /* State saat hover teks */
+  .cursor-dot.text-hover {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Hide di mobile */
+  @media (max-width: 768px) {
+    .cursor-dot {
+      display: none;
+    }
+  }
+</style>
+
+<div class="cursor-dot" id="cursor-dot"></div>
+
+<script>
+  if (typeof window !== "undefined") {
+    const cursorArrow = document.getElementById("cursor-dot");
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+    const speed = 0.15;
+
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+      cursorArrow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const textSelectors = "h1, h2, h3, h4, p, span, a, button, .card";
+    document.querySelectorAll(textSelectors).forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursorArrow.classList.add("text-hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorArrow.classList.remove("text-hover");
+      });
+    });
+  }
+</script>
