@@ -1,0 +1,59 @@
+---
+const clients = [
+  {
+    img: "/assets/img/client/logo-gpnatuna.webp",
+  },
+];
+---
+
+<section id="client" class="client-section h-fit px-6 md:px-12 py-16 bg-slate-950 overflow-hidden">
+  <div class="max-w-6xl mx-auto flex flex-col items-start gap-12">  
+    <h3 class="text-lg md:text-3xl font-semibold text-gradient">
+      Our Client
+    </h3>
+    <div class="img-client flex gap-3">
+      {clients.map((item) => (
+        <img
+          src={item.img}
+          alt={item.img}
+          class="w-full h-[100px] md:h-[150px] rounded-2xl object-contain scale-100 hover:scale-105"
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      gsap.from(".client-section h3", {
+        scrollTrigger: {
+          trigger: ".client-section",
+          start: "top 60%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".client-section .img-client > img", {
+        scrollTrigger: {
+          trigger: ".client-section",
+          start: "top 50%",
+        },
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+    });
+  }
+
+</script>
